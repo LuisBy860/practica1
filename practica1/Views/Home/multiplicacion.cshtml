@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "multiplicacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>multiplicacion</h1>
+
+
+<form asp-controller="Home" asp-action="multiplicacion">
+
+    <label> DATO 1</label>
+
+    @if (ViewBag.DatoN1V == 0)
+    {
+
+        <input type=" text" placeholder="Escribe el primer numero" name="DatoN1" />
+
+
+    }
+    else
+    {
+        <input type=" text" placeholder="Escribe el primer numero" name="DatoN1" value="@ViewBag.DatoN1V" />
+    }
+
+
+
+    <label> DATO 2</label>
+
+    <input type=" text" placeholder="Escribe el segundo numero" name="DatoN2" value="@ViewBag.DatoN2V" />
+
+
+    <input type="submit" />
+
+    <label>Resultado</label>
+    <label> @ViewBag.VariableAEnviar </label>
+
+</form>

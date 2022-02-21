@@ -4,37 +4,52 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>hola mundo </h1>
+<h1>Operaciones </h1>
 
 @*trabajando con peticiones post*@
 
+<div class="color">
+    <form asp-controller="Home" asp-action="pratica">
+        <div class="card">
+            <label> DATO 1</label>
 
-<form asp-controller="Home" asp-action="pratica">
+            @if (ViewBag.DatoN1V == 0)
+            {
 
-    <label> DATO 1</label>
-
-    @if (ViewBag.DatoN1V == 0)
-    {
-
-        <input type=" text" placeholder="Escribe el primer numero" name="DatoN1" />
-
-
-    }
-    else
-    {
-        <input type=" text" placeholder="Escribe el primer numero" name="DatoN1" value="@ViewBag.DatoN1V" />
-    }
+                <input type="number" placeholder="Escribe el primer numero" name="DatoN1"class="form-control"  min="0" max="1000000000"/>
 
 
+            }
+            else
+            {
+                <input type="number" placeholder="Escribe el primer numero" name="DatoN1" value="@ViewBag.DatoN1V"  class="form-control"/>
+            }
 
-    <label> DATO 2</label>
-
-    <input type=" text" placeholder="Escribe el segundo numero" name="DatoN2" value="@ViewBag.DatoN2V" />
 
 
-    <input type="submit" />
+            <label> DATO 2</label>
 
-    <label>Resultado</label>
-    <label> @ViewBag.VariableAEnviar </label>
 
-</form>
+            @if (ViewBag.DatoN2V == 0)
+            {
+
+                <input type="number" placeholder="Escribe el segundo numero" name="DatoN2" class="form-control" min="0" max="1000000000"/>
+
+
+            }
+            else
+            {
+                <input type="number" placeholder="Escribe el  segundo numero" name="DatoN2" value="@ViewBag.DatoN2V" class="form-control"/>
+            }
+
+      
+
+        <button class="btn btn-primary">Sumar Datos</button>
+</div>
+
+
+<label>Resultado</label>
+<label> @ViewBag.VariableAEnviar </label>
+
+    </form>
+</div>

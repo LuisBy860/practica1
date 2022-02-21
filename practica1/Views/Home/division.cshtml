@@ -14,20 +14,20 @@
     @if (ViewBag.DatoN1V == 0)
     {
 
-        <input type=" text" placeholder="Escribe el primer numero" name="DatoN1" />
+        <input type=" text" placeholder="Escribe el primer numero" name="DatoN1" min="1" max="200" />
 
 
     }
     else
     {
-        <input type=" text" placeholder="Escribe el primer numero" name="DatoN1" value="@ViewBag.DatoN1V" />
+        <input type=" text" placeholder="Escribe el primer numero" name="DatoN1" value="@ViewBag.DatoN1V" min="1" max="200" />
     }
 
 
 
     <label> DATO 2</label>
 
-    <input type=" text" placeholder="Escribe el segundo numero" name="DatoN2" value="@ViewBag.DatoN2V" />
+    <input type=" text" placeholder="Escribe el segundo numero" name="DatoN2" value="@ViewBag.DatoN2V" min="1" max="200" />
 
 
     <input type="submit" />

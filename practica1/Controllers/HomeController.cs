@@ -36,6 +36,10 @@ namespace practica1.Controllers
 
         public IActionResult pratica (Double DatoN1, Double DatoN2)
         {
+            if (DatoN1<0||DatoN2>1000000000000)
+            {
+                return View("error");
+            }
 
             Double resultado = DatoN1 + DatoN2;
             ViewBag.DatoN1V = DatoN1;
@@ -61,20 +65,16 @@ namespace practica1.Controllers
             ViewBag.VariableAEnviar = resultado;
             return View();
         }
-        public IActionResult division(Double DatoN1, Double DatoN2)
+        public IActionResult division(Double DatoN1, Double DatoN2) //estos son query string 
         {
             Double resultado = DatoN1 / DatoN2;
             ViewBag.DatoN1V = DatoN1;
             ViewBag.DatoN2V = DatoN2;
             ViewBag.VariableAEnviar = resultado;
 
-            if (DatoN1>0 && DatoN2>0)
-            {
-                return View();
-               
-            }
-            return Redirect("error");
 
+                return View();
+              
         }
         public IActionResult error()
         {

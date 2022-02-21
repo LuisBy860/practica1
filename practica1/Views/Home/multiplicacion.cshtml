@@ -9,30 +9,47 @@
 
 <form asp-controller="Home" asp-action="multiplicacion">
 
-    <label> DATO 1</label>
+    <div class="card">
+        <label> DATO 1</label>
 
-    @if (ViewBag.DatoN1V == 0)
-    {
+        @if (ViewBag.DatoN1V == 0)
+        {
 
-        <input type=" text" placeholder="Escribe el primer numero" name="DatoN1" />
-
-
-    }
-    else
-    {
-        <input type=" text" placeholder="Escribe el primer numero" name="DatoN1" value="@ViewBag.DatoN1V" />
-    }
+            <input type="number" placeholder="Escribe el primer numero" name="DatoN1" class="form-control" min="0" max="1000000000" />
 
 
+        }
+        else
+        {
+            <input type="number" placeholder="Escribe el primer numero" name="DatoN1" value="@ViewBag.DatoN1V" class="form-control" />
+        }
 
-    <label> DATO 2</label>
-
-    <input type=" text" placeholder="Escribe el segundo numero" name="DatoN2" value="@ViewBag.DatoN2V" />
 
 
-    <input type="submit" />
+        <label> DATO 2</label>
+
+
+        @if (ViewBag.DatoN2V == 0)
+        {
+
+            <input type="number" placeholder="Escribe el segundo numero" name="DatoN2" class="form-control" min="0" max="1000000000" />
+
+
+        }
+        else
+        {
+            <input type="number" placeholder="Escribe el  segundo numero" name="DatoN2" value="@ViewBag.DatoN2V" class="form-control" />
+        }
+
+
+        <div>
+         <button class="btn btn-primary">Multiplicar Datos</button>
+        </div>
+
+    </div>
+
 
     <label>Resultado</label>
     <label> @ViewBag.VariableAEnviar </label>
-
+    <div class="acheref"> <a href="index" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Pagina principal</a></div>
 </form>

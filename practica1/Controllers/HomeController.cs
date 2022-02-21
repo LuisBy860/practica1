@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using practica1.Bussines;
 using practica1.Models;
 using System;
 using System.Collections.Generic;
@@ -34,22 +35,34 @@ namespace practica1.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult pratica (Double DatoN1, Double DatoN2)
+        public IActionResult pratica (Acciones acciones)
         {
-            if (DatoN1<0||DatoN2>1000000000000)
-            {
-                return View("error");
-            }
+            //if (acciones.Dato1 <0|| acciones.Dato2 > 1000000000000)
+            //{
+            //    return View("error");
+            //}
 
-            Double resultado = DatoN1 + DatoN2;
-            ViewBag.DatoN1V = DatoN1;
-            ViewBag.DatoN2V = DatoN2;
+            //Double resultado = acciones.Dato1 + acciones.Dato2;
+
+
+            //ViewBag.DatoN1V = acciones.Dato1;
+            //ViewBag.DatoN2V = acciones.Dato2;
+            //ViewBag.VariableAEnviar = resultado;
+
+
+            //objeto de negocio
+            Operaciones op = new Operaciones();
+             
+            Double resultado = op.pratica(acciones);
             ViewBag.VariableAEnviar = resultado;
             return View();
         }
         public IActionResult resta(Double DatoN1, Double DatoN2)
         {
-
+            if (DatoN1 < 0 || DatoN2 > 1000000000000)
+            {
+                return View("error");
+            }
             Double resultado = DatoN1 - DatoN2;
             ViewBag.DatoN1V = DatoN1;
             ViewBag.DatoN2V = DatoN2;
@@ -58,6 +71,10 @@ namespace practica1.Controllers
         }
         public IActionResult multiplicacion(Double DatoN1, Double DatoN2)
         {
+            if (DatoN1 < 0 || DatoN2 > 1000000000000)
+            {
+                return View("error");
+            }
 
             Double resultado = DatoN1 * DatoN2;
             ViewBag.DatoN1V = DatoN1;
@@ -67,6 +84,10 @@ namespace practica1.Controllers
         }
         public IActionResult division(Double DatoN1, Double DatoN2) //estos son query string 
         {
+            if (DatoN1 < 0 || DatoN2 > 1000000000000)
+            {
+                return View("error");
+            }
             Double resultado = DatoN1 / DatoN2;
             ViewBag.DatoN1V = DatoN1;
             ViewBag.DatoN2V = DatoN2;

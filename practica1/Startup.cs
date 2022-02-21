@@ -50,7 +50,7 @@ namespace practica1
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=pratica}/{id?}");
+                    pattern: "{controller=Home}/{action=index}/{id?}");
             });
         }
     }

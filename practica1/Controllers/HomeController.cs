@@ -57,12 +57,10 @@ namespace practica1.Controllers
             ViewBag.VariableAEnviar = resultado;
             return View();
         }
+
         public IActionResult resta(Double DatoN1, Double DatoN2)
         {
-            if (DatoN1 < 0 || DatoN2 > 1000000000000)
-            {
-                return View("error");
-            }
+            
             Double resultado = DatoN1 - DatoN2;
             ViewBag.DatoN1V = DatoN1;
             ViewBag.DatoN2V = DatoN2;
